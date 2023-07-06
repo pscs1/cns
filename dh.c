@@ -26,11 +26,11 @@ int main()
     int a, b;    
     int A, B;   
   
-   printf("Enter your private key:\n");
+   printf("Enter your private key(XA):\n");
    scanf("%d",&a);
  
    A = compute(g, a, p);
-   printf("Enter your friend's private key:\n");
+   printf("Enter your friend's private key(XB):\n");
    scanf("%d",&b);
  
    B = compute(g, b, p);
