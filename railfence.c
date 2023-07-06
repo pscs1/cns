@@ -3,7 +3,7 @@
 #include<stdlib.h>
 int main()
 {
-    int i,j,len,rails,count,code[100][1000];
+    int i, j, len,rails,count,code[100][1000];
     char str[1000];
     printf("Enter a Secret Message\n");
     fgets(str, sizeof(str), stdin);
@@ -18,34 +18,48 @@ int main()
         }
     }
     count=0;
-    j=0;
-    while(j<len)
+    int r=0;
+    j = 0;
+    while (r < len)
     {
-        if(count%2==0)
+        if (j < rails)
         {
-            for(i=0;i<rails;i++)
-            {
-                //strcpy(code[i][j],str[j]);
-                code[i][j]=(int)str[j];
-                j++;
-            }
+            code[j][r] = str[r];
+            j++;
+            r++;
         }
         else
         {
-            for(i=rails-2;i>0;i--)
+            j = rails - 2;
+            while (j > 0 && r < len)
             {
-                code[i][j]=(int)str[j];
-                j++;
+                code[j][r] = str[r];
+                j--;
+                r++;
             }
         }
-        count++;
     }
+    printf("\nEncrypted Message:\n");
     for(i=0;i<rails;i++)
-    {
+    { 
         for(j=0;j<len;j++)
         {
             if(code[i][j]!=0)
             printf("%c",code[i][j]);
         }
     }
+    char decryptedStr[len + 1];
+    int k = 0;
+    for (j = 0; j < len; j++)
+    {
+        for (i = 0; i < rails; i++)
+        {
+            if (code[i][j] != 0)
+            {
+                decryptedStr[k++] = (char)code[i][j];
+            }
+        }
+    }
+    decryptedStr[k] = '\0';
+    printf("\nDecrypted Message: \n%s\n", decryptedStr);
 }
