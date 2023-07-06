@@ -37,4 +37,28 @@ int main()
 	printf("Generated key: %s\n", newkey);
 	printf("Encrypted Message: %s\n", encryptedmsg);
 	printf("Decrypted Message: %s\n", decryptedmsg);
+	
+	char table[27][27];
+	table[0][0] = ' ';
+	for(i = 1; i < 27; i++)
+	{
+		table[0][i] = 'A' + (i - 1);
+		table[i][0] = 'A' + (i - 1);
+	}
+	for(i = 1; i < 27; i++)
+	{
+		for(j = 1; j < 27; j++)
+		{
+			table[i][j] = ((i + j - 2) % 26) + 'A';
+		}
+	}
+	printf("\nVigenere Table:\n");
+	for(i = 0; i < 27; i++)
+	{
+		for(j = 0; j < 27; j++)
+		{
+			printf("%c  ", table[i][j]);
+		}
+		printf("\n");
+	}
 }
