@@ -41,7 +41,7 @@ int main() {
         if ((e * d) % phi == 1)
             break;
         d++;
-    } // private key
+    }
     long enc = power_mod(m, e, n);
     long dec = power_mod(enc, d, n);
     printf("Encryption: %ld\n", enc);
