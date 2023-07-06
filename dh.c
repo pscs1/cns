@@ -1,5 +1,4 @@
 #include <stdio.h>
- 
 int compute(int a, int m, int n)
 {
     int r;
