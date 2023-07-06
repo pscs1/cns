@@ -24,7 +24,7 @@ long power_mod(long base, long exponent, long modulus) {
 
 int main() {
     long p, q;
-    printf("Enter the prime numbers: ");
+    printf("Enter the two prime numbers: ");
     scanf("%ld %ld", &p, &q);
     long m, n = p * q;
     printf("Enter the message: ");
