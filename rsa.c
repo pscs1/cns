@@ -11,15 +11,15 @@ int gcd(int m, int n) {
     return gcd(m, n);
 }
 
-long power_mod(long base, long exponent, long modulus) {
-    long int result = 1;
-    while (exponent) {
-        if (exponent & 1)
-            result = (result * base) % modulus;
-        base = (base * base) % modulus;
-        exponent >>= 1;
+long power_mod(long b, long e, long m) {
+    long int r = 1;
+    while (e) {
+        if (e & 1)
+            r = (r * b) % m;
+        b = (b * b) % m;
+        e >>= 1;
     }
-    return result;
+    return r;
 }
 
 int main() {
